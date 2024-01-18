@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --mobileHeaderHeight: 60px;
+  --desktopHeaderSize: 80px;
+  --dark: theme(colors.neutral.900);
+}
+
+.layout-grid {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-areas:
+    'header'
+    'main-area';
+  grid-template-rows: var(--mobileHeaderHeight) 1fr;
+}
+
+.header {
+  background: var(--dark);
+}
+
+@media (min-width: 1024px) {
+  .layout-grid {
+    grid-template-areas: 'header main-area';
+    grid-template-columns: var(--desktopHeaderSize) 1fr;
+    grid-template-rows: 1fr;
+  }
+}
