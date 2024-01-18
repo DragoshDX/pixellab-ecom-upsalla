@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         <div className="layout-grid">
           <header className="header">header</header>
 
-          <div>
+          <div className="main-area">
             <main className="content">{children}</main>
 
             <footer className="footer">footer</footer>

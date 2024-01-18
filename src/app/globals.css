@@ -6,6 +6,8 @@
   --mobileHeaderHeight: 60px;
   --desktopHeaderSize: 80px;
   --dark: theme(colors.neutral.900);
+  --white: theme(colors.white);
+  --gray: theme(colors.neutral.100);
 }
 
 .layout-grid {
@@ -19,6 +21,20 @@
 
 .header {
   background: var(--dark);
+  color: var(--white);
+  grid-area: header;
+}
+
+.main-area {
+  grid-area: main-area;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - var(--mobileHeaderHeight));
+  justify-content: space-between;
+}
+
+.footer {
+  background: var(--gray);
 }
 
 @media (min-width: 1024px) {
@@ -26,5 +42,13 @@
     grid-template-areas: 'header main-area';
     grid-template-columns: var(--desktopHeaderSize) 1fr;
     grid-template-rows: 1fr;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--desktopHeaderSize);
   }
 }
