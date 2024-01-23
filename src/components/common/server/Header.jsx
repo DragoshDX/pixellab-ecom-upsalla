@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CgMenu } from 'react-icons/cg';
+import { OffCanvasMenu } from '../client';
 
 // consider jsx is a normal data type
 const jsxLogo = (
@@ -12,9 +12,11 @@ export const Header = () => {
       {/* forced example */}
       <Link href="/">{jsxLogo}</Link>
 
-      <button title="Menu" type="button">
-        <CgMenu size={32}></CgMenu>
-      </button>
+      <OffCanvasMenu></OffCanvasMenu>
+
+      <ul className="hidden lg:flex">
+        <li>{jsxLogo}</li>
+      </ul>
     </div>
   );
 };
