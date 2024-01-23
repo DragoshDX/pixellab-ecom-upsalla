@@ -16,7 +16,7 @@ export const Header = () => {
 
       <OffCanvasMenu></OffCanvasMenu>
 
-      <ul className="hidden lg:flex">
+      <ul className="hidden lg:flex z-10">
         <li>{jsxLogo}</li>
       </ul>
     </div>
