@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { CgMenu } from 'react-icons/cg';
 
 export const OffCanvasMenu = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -21,7 +21,7 @@ export const OffCanvasMenu = () => {
       <nav
         className={`${
           open ? 'translate-y-full' : ''
-        } bg-neutral-900 text-white w-dvw h-dvh fixed left-0 -top-full z-0 lg:w-1/3`}
+        } bg-neutral-900 transition-transform transform-gpu text-white w-dvw h-dvh fixed left-0 -top-full z-0 lg:w-1/3`}
       >
         <ul>
           <li>
