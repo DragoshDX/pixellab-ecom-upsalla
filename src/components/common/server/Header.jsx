@@ -10,7 +10,9 @@ export const Header = () => {
   return (
     <div className="bg-neutral-900 text-white flex lg:flex-col justify-between items-center h-full p-4">
       {/* forced example */}
-      <Link href="/">{jsxLogo}</Link>
+      <Link href="/" className="relative z-10">
+        {jsxLogo}
+      </Link>
 
       <OffCanvasMenu></OffCanvasMenu>
 
