@@ -2,20 +2,27 @@ import { useEffect, useState } from 'react';
 import { ProductTile } from '.';
 import { css } from '@emotion/css';
 
+let cache = [];
+
 export const ProductGrid = () => {
   const [products, setProducts] = useState([]);
   const itemsPerRow = 2;
 
   useEffect(() => {
-    // fetch returns a promise
-    fetch('https://fakestoreapi.com/products')
-      .then((response) => {
-        // respinse.json() returns a promise
-        return response.json();
-      })
-      .then((products) => {
-        setProducts(products);
-      });
+    if (cache.length === 0) {
+      // fetch returns a promise
+      fetch('https://fakestoreapi.com/products')
+        .then((response) => {
+          // respinse.json() returns a promise
+          return response.json();
+        })
+        .then((products) => {
+          cache = products;
+          setProducts(products);
+        });
+    } else {
+      setProducts(cache);
+    }
   }, []);
 
   const gridCssClass = css`
