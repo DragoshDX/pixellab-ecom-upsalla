@@ -27,6 +27,7 @@ export const useProducts = () => {
         });
     } else {
       setProducts(cache);
+      setLoading(false);
     }
   }, []);
 
