@@ -3,7 +3,7 @@ import { ProductTile } from '.';
 import { css } from '@emotion/css';
 
 export const ProductGrid = () => {
-  const { products, loading } = useProducts();
+  const { products, loading, error } = useProducts();
   const itemsPerRow = 2;
 
   const gridCssClass = css`
@@ -17,6 +17,10 @@ export const ProductGrid = () => {
 
   if (loading) {
     return <div className="container mx-auto px-4">...loading</div>;
+  }
+
+  if (error.trim().length > 0) {
+    return <div className="container mx-auto px-4">{error}</div>;
   }
 
   return (
