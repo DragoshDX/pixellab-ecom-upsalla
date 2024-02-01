@@ -1,16 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useLocalStorage } from 'usehooks-ts';
+import { uiContext } from '@/contexts';
+import { useContext } from 'react';
 
 const buttonClasses =
   'flex justify-center items-center border-l border-zinc-200 w-20 h-20 transition-colors hover:bg-neutral-900 hover:text-white';
 
 export const GridControls = () => {
-  const [perRow, setPerRow] = useLocalStorage('perRow', '2');
-  const [itemsPerRow, setItemsPerRow] = useState('2');
-
-  useEffect(() => {
-    setItemsPerRow(perRow);
-  }, [perRow]);
+  const { itemsPerRow, setItemsPerRow } = useContext(uiContext);
 
   return (
     <ul className="border  border-zinc-200 flex">
@@ -22,7 +17,7 @@ export const GridControls = () => {
             itemsPerRow === '1' ? 'bg-neutral-900 text-white' : ''
           }`}
           onClick={() => {
-            setPerRow('1');
+            setItemsPerRow('1');
           }}
         >
           1
@@ -37,7 +32,7 @@ export const GridControls = () => {
             itemsPerRow === '2' ? 'bg-neutral-900 text-white' : ''
           }`}
           onClick={() => {
-            setPerRow('2');
+            setItemsPerRow('2');
           }}
         >
           2
@@ -52,7 +47,7 @@ export const GridControls = () => {
             itemsPerRow === '4' ? 'bg-neutral-900 text-white' : ''
           }`}
           onClick={() => {
-            setPerRow('4');
+            setItemsPerRow('4');
           }}
         >
           4
