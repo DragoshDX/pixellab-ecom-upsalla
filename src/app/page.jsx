@@ -1,3 +1,4 @@
+import { CartControls } from '@/components/cart/client';
 import { GridControls, ProductGrid } from '@/components/catalog/client';
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <div className="container px-4 mx-auto">
       <header className="flex justify-end">
         <GridControls></GridControls>
+        <CartControls></CartControls>
       </header>
 
       <section>
