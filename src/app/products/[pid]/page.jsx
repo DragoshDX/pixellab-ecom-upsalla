@@ -1,9 +1,13 @@
+import { redirect } from 'next/navigation';
+
 const getProduct = async (productId) => {
-  return fetch(`https://fakestoreapi.com/products/${productId}`).then(
-    (response) => {
+  return fetch(`https://fakestoreapi.com/products/${productId}`)
+    .then((response) => {
       return response.json();
-    },
-  );
+    })
+    .catch(() => {
+      redirect('/not-found');
+    });
 };
 
 export default async function ProductPage({ params }) {
