@@ -1,3 +1,4 @@
+import { Pagination } from '@/components/catalog/client';
 import { Separator } from '@/components/ui/server';
 
 export const Footer = () => {
