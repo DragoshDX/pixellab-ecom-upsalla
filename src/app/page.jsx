@@ -14,6 +14,8 @@ export default function Home() {
       </header>
 
       <section>
+        <Pagination></Pagination>
+
         <ProductGrid></ProductGrid>
 
         <Pagination></Pagination>

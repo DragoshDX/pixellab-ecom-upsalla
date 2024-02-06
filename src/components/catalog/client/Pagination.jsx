@@ -1,7 +1,25 @@
+import { uiContext } from '@/contexts';
+import { useProducts } from '@/hooks';
+import { useContext, useEffect } from 'react';
+
 export const Pagination = () => {
-  const pageCount = 8;
-  const setPage = () => {};
-  const page = 1;
+  const { products, loading } = useProducts();
+  const { pagination, setPagination } = useContext(uiContext);
+  const { total, perPage, page } = pagination;
+
+  useEffect(() => {
+    setPagination({
+      perPage,
+      page,
+      total: products.length,
+    });
+  }, [perPage, page, setPagination, products]);
+
+  if (loading) {
+    return <></>;
+  }
+
+  const pageCount = Math.ceil(total / perPage);
 
   return (
     <ul className="flex gap-2">
@@ -19,7 +37,10 @@ export const Pagination = () => {
                   pageIndex === page ? 'bg-black text-white' : ''
                 }`}
                 onClick={() => {
-                  setPage(pageIndex);
+                  setPagination({
+                    ...pagination,
+                    page: pageIndex,
+                  });
                 }}
               >
                 {pageIndex}
