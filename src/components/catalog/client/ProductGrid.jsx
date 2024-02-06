@@ -5,11 +5,10 @@ import { useContext, useEffect, useState } from 'react';
 import { uiContext } from '@/contexts';
 
 export const ProductGrid = () => {
-  const { itemsPerRow } = useContext(uiContext);
+  const { itemsPerRow, pagination, setPagination } = useContext(uiContext);
+  const { perPage, page } = pagination;
   const { products, loading, error } = useProducts();
   const [paginatedProducts, setPaginatedProducts] = useState([]);
-  const [perPage, setPerPage] = useState(8);
-  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const newPaginatedProducts = products
@@ -67,7 +66,10 @@ export const ProductGrid = () => {
                     pageIndex === page ? 'bg-black text-white' : ''
                   }`}
                   onClick={() => {
-                    setPage(pageIndex);
+                    setPagination({
+                      ...pagination,
+                      page: pageIndex,
+                    });
                   }}
                 >
                   {pageIndex}
