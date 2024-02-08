@@ -31,7 +31,6 @@ export const useProducts = () => {
         });
     } else {
       setProducts(cache);
-      busy = false;
       setLoading(false);
     }
   }, []);
