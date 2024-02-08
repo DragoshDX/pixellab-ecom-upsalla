@@ -10,7 +10,7 @@ export const useProducts = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    if (cache.length === 0 || !busy) {
+    if (cache.length === 0) {
       // fetch returns a promise
       fetch(`${baseUrl}/products`)
         .then((response) => {

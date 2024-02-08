@@ -1,3 +1,4 @@
+import { AddToCart } from '@/components/cart/client';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -30,7 +31,9 @@ export const ProductTile = (props) => {
 
       <section>{/* product price */}</section>
 
-      <footer>{/* add to cart homework */}</footer>
+      <footer>
+        <AddToCart product={product}></AddToCart>
+      </footer>
     </article>
   );
 };

@@ -23,5 +23,5 @@ export const useCart = (cartId = 2) => {
       });
   }, [cartId]);
 
-  return { cartProducts, loading, error };
+  return { cartProducts, loading, error, setCartProducts };
 };
