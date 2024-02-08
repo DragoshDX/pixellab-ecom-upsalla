@@ -1,5 +1,6 @@
 import { cartContext } from '@/contexts';
 import { useContext } from 'react';
+import { CartLineItem } from '.';
 
 export const CartDisplay = () => {
   const { cartProducts } = useContext(cartContext);
@@ -20,11 +21,10 @@ export const CartDisplay = () => {
       <tbody>
         {cartProducts.map((cartProduct) => {
           return (
-            <tr key={cartProduct.productId}>
-              <td>
-                {cartProduct.quantity} {cartProduct.productId}
-              </td>
-            </tr>
+            <CartLineItem
+              key={cartProduct.productId}
+              product={cartProduct}
+            ></CartLineItem>
           );
         })}
       </tbody>
