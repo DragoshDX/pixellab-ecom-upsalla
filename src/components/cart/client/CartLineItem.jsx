@@ -5,7 +5,12 @@ export const CartLineItem = ({ product }) => {
   const { products, loading } = useProducts();
 
   if (loading) {
-    return <></>;
+    // add spinner
+    return (
+      <tr>
+        <td>...loading</td>
+      </tr>
+    );
   }
 
   const catalogProduct = products.find((product) => {
@@ -13,7 +18,11 @@ export const CartLineItem = ({ product }) => {
   });
 
   if (!catalogProduct) {
-    return <></>;
+    return (
+      <tr>
+        <td></td>
+      </tr>
+    );
   }
 
   const { title, price } = catalogProduct;

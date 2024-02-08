@@ -13,7 +13,7 @@ export const useCart = (cartId = 2) => {
       })
       .then((cart) => {
         const { products } = cart;
-
+        setLoading(false);
         setCartProducts(products);
       })
       .catch((error) => {

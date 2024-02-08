@@ -8,7 +8,7 @@ export const CartDisplay = () => {
   // insert loader style as homework
   if (loading) {
     //  please add spinner
-    return <></>;
+    return <>...loading</>;
   }
 
   return (
