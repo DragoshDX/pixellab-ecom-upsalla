@@ -1,8 +1,8 @@
-import { useProducts } from '@/hooks';
+import { useProduct } from '@/hooks';
 
 export const CartLineItem = ({ product }) => {
   const { quantity, productId } = product;
-  const { products, loading } = useProducts();
+  const { product: fullProduct, loading } = useProduct(productId);
 
   if (loading) {
     // add spinner
@@ -13,11 +13,7 @@ export const CartLineItem = ({ product }) => {
     );
   }
 
-  const catalogProduct = products.find((product) => {
-    return productId === product.id;
-  });
-
-  if (!catalogProduct) {
+  if (!fullProduct) {
     return (
       <tr>
         <td></td>
@@ -25,7 +21,7 @@ export const CartLineItem = ({ product }) => {
     );
   }
 
-  const { title, price } = catalogProduct;
+  const { title, price } = fullProduct;
 
   return (
     <tr>

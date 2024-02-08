@@ -10,7 +10,7 @@ export const useProducts = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    if (cache.length === 0 || loading) {
+    if (cache.length === 0 || !busy) {
       // fetch returns a promise
       fetch(`${baseUrl}/products`)
         .then((response) => {
@@ -20,18 +20,21 @@ export const useProducts = () => {
         .then((products) => {
           cache = products;
           setProducts(products);
+
           setLoading(false);
         })
         .catch((error) => {
           console.dir(error);
           setLoading(false);
+
           setError('An error has occured');
         });
     } else {
       setProducts(cache);
+      busy = false;
       setLoading(false);
     }
-  }, [loading]);
+  }, []);
 
   return { products, loading, error };
 };
