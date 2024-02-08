@@ -12,7 +12,14 @@ export const useCart = (cartId = 2) => {
         return response.json();
       })
       .then((cart) => {
-        console.log(cart);
+        const { products } = cart;
+
+        setCartProducts(products);
+      })
+      .catch((error) => {
+        console.dir(error);
+        setLoading(false);
+        setError('An error has occured');
       });
   }, [cartId]);
 

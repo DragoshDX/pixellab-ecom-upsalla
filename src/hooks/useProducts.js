@@ -14,7 +14,7 @@ export const useProducts = () => {
       // fetch returns a promise
       fetch(`${baseUrl}/products`)
         .then((response) => {
-          // respinse.json() returns a promise
+          // response.json() returns a promise
           return response.json();
         })
         .then((products) => {
