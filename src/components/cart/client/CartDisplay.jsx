@@ -3,19 +3,25 @@ import { useContext } from 'react';
 import { CartLineItem } from '.';
 
 export const CartDisplay = () => {
-  const { cartProducts } = useContext(cartContext);
+  const { cartProducts, loading } = useContext(cartContext);
 
   // insert loader style as homework
+  if (loading) {
+    //  please add spinner
+    return <></>;
+  }
 
   return (
     <table>
       <thead>
-        <th></th>
-        <th></th>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Total</th>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
       </thead>
 
       <tbody>
