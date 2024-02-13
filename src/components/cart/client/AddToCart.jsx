@@ -1,19 +1,11 @@
-import { cartContext } from '@/contexts';
-import { useContext } from 'react';
+import { useAddToCart } from '@/hooks/cart/useAddToCart';
 
 export const AddToCart = ({ product }) => {
   const { title, id } = product;
-  const { setCartProducts, cartProducts } = useContext(cartContext);
-  const loading = false;
+  const { addToCart, loading } = useAddToCart();
 
   const onClick = () => {
-    setCartProducts([
-      ...cartProducts,
-      {
-        quantity: 1,
-        productId: id,
-      },
-    ]);
+    addToCart(id);
   };
 
   return (
