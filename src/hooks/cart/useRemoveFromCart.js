@@ -48,5 +48,5 @@ export const useRemoveFromCart = () => {
       });
   };
 
-  return { operation, loading };
+  return { removeFromCart: operation, loading };
 };
